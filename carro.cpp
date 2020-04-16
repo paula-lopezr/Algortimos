@@ -1,7 +1,7 @@
 #include "carro.hpp"
 
 Carro::Carro(int Numas){
-  Numas = Numas;  //Numero de asientos disponibles
+  this -> Numas = Numas;  //Numero de asientos disponibles
 }
 
 int Carro::getAs(){
@@ -10,7 +10,7 @@ int Carro::getAs(){
 
 void Carro::setAs(int dispo){
   if(dispo<=Numas)
-    Numas = Numas - dispo;
+    Numas -= dispo;
   //Al total  de asientos disponibles le restamos la cantidad
   //de personas que se haya subido al Carro para tener un nuevo numero de asientos
   else{
