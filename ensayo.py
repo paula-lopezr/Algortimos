@@ -1,11 +1,3 @@
-#https://es.stackoverflow.com/questions/9069/c%C3%B3mo-llamar-a-c%C3%B3digo-c-desde-python
-# import subprocess
-# from tkinter import *
-# cimport carro.cpp
-# from distutils.core import setup, Extension
-# from Cython.Build import cythonize
-# cdef extern from "carro.hpp":
-#     void setAs(int dispo)
 
 from tkinter import *
 import subprocess
@@ -32,13 +24,13 @@ def Grafica():
     campo2 = Entry(root)
     campo2.insert(0, "")
     campo2.place(x=0,y=height/3 + 40)
-    boton2 = Button(root, text="Aceptar", command = lambda: Asientos(campo.get()), font= ("Verdana",15),background="white").place(x=0,y=height/3 + 70)
+    boton2 = Button(root, text="Aceptar", command = lambda: Asientos(campo2.get()), font= ("Verdana",15),background="white").place(x=0,y=height/3 + 70)
     pregunta3 = "¿Cuántas personas van en el carro?"
     etiqueta3 = Label(text=pregunta3, font= ("Verdana",15),background="white").place(x=0, y=height/2)
     campo3 = Entry(root)
     campo3.insert(0, "")
     campo3.place(x=0,y=height/2 + 40)
-    boton3 = Button(root, text="Aceptar",command = lambda: Disponibilidad(campo.get()), font= ("Verdana",15),background="white").place(x=0,y=height/2 + 70)
+    boton3 = Button(root, text="Aceptar",command = lambda: Disponibilidad(campo3.get()), font= ("Verdana",15),background="white").place(x=0,y=height/2 + 70)
     subprocess.call("./a.exe")
 
 def Ubicacion(entry):
@@ -49,26 +41,16 @@ def Ubicacion(entry):
         print("Sigue el camino devuelta")
 
 def Asientos(entry): #Cuantos asientos hay
-    f = open("Asientos.txt", "w")
-    f.write(str(entry))
-    f.close()
+    print(entry)
+    archivo = open("Asientos.txt", "w")
+    archivo.write(entry)
+    archivo.close()
 
 def Disponibilidad(entry):
-    f1 = open("Dispo.txt", "w")
-    f1.write(str(entry))
-    f1.close()
-
-# def Disponibilidad(entry):
-#     file2 = open("dispo.txt", "w")
-#     file2.write(str(entry) + os.linesep)
-#     file2.close()
-# #    etiqueta3 = Label(text="Ok", font = ("Verdana", 15), background ="white").place(x=0, y=height/2)
-#     subprocess.call("./a.exe")
-#     file2 = open("Asientos.txt", "r")
-#     as = file2.read()
-#     # Ent = int(entry)
-#     # carro.setAs(Ent)
-#     # return carro.getAs()
+    print(entry)
+    archivo2 = open("Dispo.txt", "w")
+    archivo2.write(entry)
+    archivo2.close()
 
 def limpiar():
     root.destroy()
